@@ -1,2 +1,2 @@
-# D-Github-AzureFunctionsREST
+# AzureFunctionsREST
 Building REST services with Azure Functions
