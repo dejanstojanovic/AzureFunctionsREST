@@ -14,7 +14,7 @@ namespace AzureFunctionsREST
 {
     public static class PersonsService
     {
-        [FunctionName("PersosnGet")]
+        [FunctionName("PersonsGet")]
         public static async Task<ActionResult<IEnumerable<Person>>> PersonsGet(
             [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "Persons")] HttpRequest httpRequest,
             ILogger logger
@@ -46,7 +46,7 @@ namespace AzureFunctionsREST
 
         [FunctionName("PersonsPost")]
         public static async Task<IActionResult> PersonsPost(
-            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "Samples")] HttpRequest httpRequest,
+            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "Persons")] HttpRequest httpRequest,
             ILogger logger
             )
         {
