@@ -15,8 +15,9 @@ namespace AzureFunctionsREST
 {
     public static class PersonsService
     {
+             
         [FunctionName("PersonsGet")]
-        public static async Task<ActionResult<IEnumerable<Person>>> PersonsGet(
+        public static async Task<IActionResult> PersonsGet(
             [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "Persons")] HttpRequest httpRequest,
             ILogger logger
             )
@@ -31,7 +32,7 @@ namespace AzureFunctionsREST
         }
 
         [FunctionName("PersonsGetById")]
-        public static async Task<ActionResult<Person>> PersonsGetById(
+        public static async Task<IActionResult> PersonsGetById(
             [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "Persons/{id}")] HttpRequest httpRequest,
             ILogger logger,
             String id
@@ -44,6 +45,7 @@ namespace AzureFunctionsREST
             );
         }
 
+        //Model binding issue https://github.com/Azure/azure-functions-host/issues/3370
         [FunctionName("PersonsPost")]
         public static async Task<IActionResult> PersonsPost(
             [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "Persons")] HttpRequest httpRequest,
